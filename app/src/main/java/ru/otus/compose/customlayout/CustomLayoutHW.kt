@@ -25,7 +25,6 @@ fun CustomLayoutHW(
     modifier: Modifier = Modifier,
     content: @Composable () -> Unit = { }
 ) {
-    // Replace Column with your custom layout
     Layout(
         modifier = modifier,
         content = content,
