@@ -1,6 +1,7 @@
 package ru.otus.compose.customlayout
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -14,7 +15,7 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun ComposeHomeworkApp() {
     CustomLayoutHW(
-        columns = 3,
+        columns = 4,
         modifier = Modifier.systemBarsPadding()
             .padding(14.dp)
     ) {
