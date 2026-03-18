@@ -43,9 +43,8 @@ fun CustomGridLayout(
     ) { constraints ->
 
         val cellWidth = constraints.maxWidth / columnsCount
-        val measurables = subcompose("content_slot", content)
 
-        val fixedPlaceableItems = measurables.map { measurable ->
+        val fixedPlaceableItems = subcompose("content_slot", content).map { measurable ->
             val width = measurable.maxIntrinsicWidth(Constraints.Infinity)
             val height = measurable.maxIntrinsicHeight(width)
             val scale = cellWidth.toFloat() / width.toFloat()
