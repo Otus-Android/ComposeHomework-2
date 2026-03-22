@@ -12,8 +12,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.SubcomposeLayout
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.Constraints
 import androidx.compose.ui.unit.dp
+
+private const val ERROR_MESSAGE = "columnsCount must be > 0"
 
 /**
  * Task: Make custom grid layout
@@ -41,11 +42,12 @@ fun CustomGridLayout(
     SubcomposeLayout(
         modifier = modifier
     ) { constraints ->
+        if (columnsCount == 0) throw IllegalArgumentException(ERROR_MESSAGE)
 
         val cellWidth = constraints.maxWidth / columnsCount
 
         val fixedPlaceableItems = subcompose("content_slot", content).map { measurable ->
-            val width = measurable.maxIntrinsicWidth(Constraints.Infinity)
+            val width = measurable.maxIntrinsicWidth(constraints.maxHeight)
             val height = measurable.maxIntrinsicHeight(width)
             val scale = cellWidth.toFloat() / width.toFloat()
 
