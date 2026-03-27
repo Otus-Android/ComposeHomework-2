@@ -28,10 +28,15 @@ fun CustomLayoutHW(
     verticalSpacing: Dp = 8.dp,   // Отступ между строками
     content: @Composable () -> Unit = { }
 ) {
+    require(columns > 0) { "columns must be > 0" }
     Layout(
         modifier = modifier,
         content = content
     ) { measurables, constraints ->
+        check(constraints.hasBoundedWidth) {
+            "CustomLayoutHW requires bounded width"
+        }
+
         val hSpacingPx = horizontalSpacing.roundToPx()
         val vSpacingPx = verticalSpacing.roundToPx()
 
