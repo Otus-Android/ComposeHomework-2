@@ -12,10 +12,11 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun ComposeHomeworkApp() {
+fun ComposeHomeworkApp(modifier: Modifier = Modifier) {
     CustomLayoutHW(
         columns = 3,
-        modifier = Modifier.systemBarsPadding()
+        modifier = modifier
+            .systemBarsPadding()
             .padding(14.dp)
     ) {
         Image(
